@@ -2,12 +2,12 @@
 
 @theme {
   --color-cherry-red: #d41e3a;
-  --color-cherry-black: #0d0d0f;
+  --color-cherry-black: #ffb6c1;
   --color-cherry-gold: #c9a84c;
   --color-waxstat-teal: #71d8a7;
 }
 
 html,
 body {
-  background-color: #0d0d0f;
+  background-color: #ffb6c1;
 }
