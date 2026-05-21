@@ -1,4 +1,4 @@
-export type Brand = "Topps" | "Panini" | "Upper Deck" | "Pokemon";
+export type Brand = "Topps" | "Panini" | "Upper Deck" | "Pokemon" | "Leaf";
 
 export interface PricePoint {
   date: string;

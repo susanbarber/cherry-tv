@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import type { Release, Brand } from "@/lib/types";
 import ReleaseCard from "./ReleaseCard";
 
-const BRANDS: Brand[] = ["Topps", "Panini", "Upper Deck", "Pokemon"];
+const BRANDS: Brand[] = ["Topps", "Panini", "Upper Deck", "Pokemon", "Leaf"];
 const REFRESH_MS = 10 * 60 * 1000; // 10 minutes
 
 export default function Dashboard() {
