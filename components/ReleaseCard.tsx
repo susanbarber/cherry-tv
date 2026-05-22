@@ -81,7 +81,7 @@ export default function ReleaseCard({ release }: Props) {
           </div>
 
           <h2 className="text-white font-semibold text-sm leading-snug mb-1">{release.name}</h2>
-          <p className="text-white/50 text-xs">{release.sport}</p>
+          <p className="text-white/50 text-xs">{release.category}</p>
         </div>
 
         <div className="mt-4">
