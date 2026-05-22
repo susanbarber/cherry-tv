@@ -1,5 +1,5 @@
-import Dashboard from "@/components/Dashboard";
+import CategoryCarousel from "@/components/CategoryCarousel";
 
 export default function Home() {
-  return <Dashboard />;
+  return <CategoryCarousel />;
 }

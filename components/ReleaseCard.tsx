@@ -8,6 +8,9 @@ const BRAND_COLORS: Record<string, string> = {
   Topps: "#1a73e8",
   Panini: "#e8961a",
   "Upper Deck": "#6b21a8",
+  "Wizards of the Coast": "#7c3aed",
+  Bandai: "#0ea5e9",
+  Futera: "#16a34a",
   Pokemon: "#f59e0b",
   Leaf: "#16a34a",
 };
