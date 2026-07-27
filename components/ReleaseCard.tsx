@@ -38,7 +38,7 @@ export default function ReleaseCard({ release }: Props) {
       style={{ borderTop: `3px solid ${brandColor}` }}
     >
       {/* Product image */}
-      <div className="relative w-full h-44 bg-white/5 flex items-center justify-center overflow-hidden">
+      <div className="relative w-full h-44 bg-white/5 flex items-center justify-center overflow-hidden shrink-0">
         {release.imageUrl ? (
           <Image
             src={release.imageUrl}
@@ -52,16 +52,11 @@ export default function ReleaseCard({ release }: Props) {
             className="w-full h-full flex flex-col items-center justify-center gap-2"
             style={{ background: `${brandColor}18` }}
           >
-            <div
-              className="text-3xl font-black opacity-30"
-              style={{ color: brandColor }}
-            >
+            <div className="text-3xl font-black opacity-30" style={{ color: brandColor }}>
               {release.brand.slice(0, 2).toUpperCase()}
             </div>
-            <div className="text-white/20 text-xs">No image</div>
           </div>
         )}
-
         {release.isNew && (
           <span className="absolute top-2 right-2 text-[10px] font-bold bg-cherry-red text-white px-2 py-0.5 rounded-full uppercase tracking-wide z-10">
             New
@@ -70,39 +65,40 @@ export default function ReleaseCard({ release }: Props) {
       </div>
 
       {/* Card body */}
-      <div className="flex flex-col justify-between p-5 flex-1">
+      <div className="flex flex-col flex-1 p-4 gap-2">
+        {/* Product name + brand */}
         <div>
           <div
-            className="inline-block text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded mb-2"
+            className="inline-block text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded mb-1"
             style={{ background: brandColor + "22", color: brandColor }}
           >
             {release.brand}
           </div>
-
-          <h2 className="text-white font-semibold text-sm leading-snug mb-1">{release.name}</h2>
-          <p className="text-white/50 text-xs">{release.category}</p>
+          <h2 className="text-white font-semibold text-xs leading-snug line-clamp-2">{release.name}</h2>
         </div>
 
-        <div className="mt-4">
-          <div className="flex items-center justify-between mb-1">
-            <span className="text-white/40 text-xs">Release</span>
-            <span className={`text-xs font-semibold ${isToday ? "text-cherry-gold" : "text-white/70"}`}>
-              {isToday ? "TODAY" : formatDate(release.releaseDate)}
-            </span>
-          </div>
+        {/* Release date */}
+        <div className="flex items-center justify-between">
+          <span className="text-white/30 text-[10px] uppercase tracking-wide">Release</span>
+          <span className={`text-[10px] font-semibold ${isToday ? "text-cherry-gold" : "text-white/60"}`}>
+            {isToday ? "TODAY" : formatDate(release.releaseDate)}
+          </span>
+        </div>
 
-          <div className="mt-3">
-            <p className="text-white/40 text-[10px] uppercase tracking-wide mb-0.5">Market avg</p>
-            <p className="text-white/60 text-sm line-through">${release.marketAverage.toFixed(2)}</p>
-            <p className="text-cherry-gold text-lg font-bold leading-none">
-              ${release.cherryPrice.toFixed(2)}
+        {/* Pricing — fills remaining space */}
+        <div className="flex-1 flex flex-col justify-end pt-1 border-t border-white/10">
+          <p className="text-white/40 text-[10px] uppercase tracking-wide mb-1">Market avg</p>
+          <p className="text-white/50 text-base line-through leading-none mb-1">
+            ${release.marketAverage.toFixed(2)}
+          </p>
+          <p className="text-cherry-gold font-black leading-none" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)" }}>
+            ${release.cherryPrice.toFixed(2)}
+          </p>
+          {pct > 0 && (
+            <p className="text-waxstat-teal text-sm font-bold mt-1">
+              Save {pct.toFixed(0)}%
             </p>
-            {pct > 0 && (
-              <p className="text-waxstat-teal text-[10px] font-semibold mt-0.5">
-                Save {pct.toFixed(0)}%
-              </p>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </div>
