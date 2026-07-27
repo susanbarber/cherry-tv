@@ -38,15 +38,20 @@ export default function ReleaseCard({ release }: Props) {
       style={{ borderTop: `3px solid ${brandColor}` }}
     >
       {/* Product image */}
-      <div className="relative w-full h-44 bg-white/5 flex items-center justify-center overflow-hidden shrink-0">
+      <div className="relative w-full h-44 overflow-hidden shrink-0">
         {release.imageUrl ? (
-          <Image
-            src={release.imageUrl}
-            alt={release.name}
-            fill
-            className="object-contain p-3"
-            unoptimized
-          />
+          <div
+            className="absolute inset-0 bg-white"
+            style={{ mixBlendMode: "multiply" }}
+          >
+            <Image
+              src={release.imageUrl}
+              alt={release.name}
+              fill
+              className="object-contain p-3"
+              unoptimized
+            />
+          </div>
         ) : (
           <div
             className="w-full h-full flex flex-col items-center justify-center gap-2"
