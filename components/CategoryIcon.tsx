@@ -19,6 +19,41 @@ function PokeBall({ size = 14 }: { size?: number }) {
   );
 }
 
+function OnePieceJollyRoger({ size = 14 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      width={size}
+      height={size}
+      aria-label="One Piece Jolly Roger"
+      style={{ display: "inline-block", flexShrink: 0 }}
+    >
+      {/* Crossbones */}
+      <line x1="2" y1="18" x2="18" y2="12" stroke="white" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="2"  cy="18" r="1.4" fill="white" />
+      <circle cx="18" cy="12" r="1.4" fill="white" />
+      <line x1="2" y1="12" x2="18" y2="18" stroke="white" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="2"  cy="12" r="1.4" fill="white" />
+      <circle cx="18" cy="18" r="1.4" fill="white" />
+
+      {/* Skull */}
+      <circle cx="10" cy="14" r="5" fill="white" />
+      {/* Eyes */}
+      <circle cx="7.8" cy="13.2" r="1.3" fill="#111" />
+      <circle cx="12.2" cy="13.2" r="1.3" fill="#111" />
+      {/* Nose */}
+      <path d="M9.5 15.4 L10 16.3 L10.5 15.4 Z" fill="#111" />
+
+      {/* Straw hat brim */}
+      <ellipse cx="10" cy="9.8" rx="7.8" ry="1.7" fill="#d4940a" />
+      {/* Hat dome */}
+      <path d="M6.2 9.8 Q6.8 5.2 10 5.2 Q13.2 5.2 13.8 9.8 Z" fill="#d4940a" />
+      {/* Hat band */}
+      <path d="M6.5 8.6 Q10 7.4 13.5 8.6" stroke="#9a6a00" strokeWidth="0.9" fill="none" />
+    </svg>
+  );
+}
+
 interface Props {
   category: Category;
   size?: number;
@@ -26,5 +61,6 @@ interface Props {
 
 export default function CategoryIcon({ category, size = 14 }: Props) {
   if (category === "Pokémon") return <PokeBall size={size} />;
+  if (category === "One Piece") return <OnePieceJollyRoger size={size} />;
   return <span>{CATEGORY_CONFIG[category].emoji}</span>;
 }
