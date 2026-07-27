@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import type { Release } from "@/lib/types";
-import PriceChart from "./PriceChart";
 
 const BRAND_COLORS: Record<string, string> = {
   Topps: "#1a73e8",
@@ -92,20 +91,17 @@ export default function ReleaseCard({ release }: Props) {
             </span>
           </div>
 
-          <div className="flex items-end justify-between gap-4 mt-3">
-            <div>
-              <p className="text-white/40 text-[10px] uppercase tracking-wide mb-0.5">Market avg</p>
-              <p className="text-white/60 text-sm line-through">${release.marketAverage.toFixed(2)}</p>
-              <p className="text-cherry-gold text-lg font-bold leading-none">
-                ${release.cherryPrice.toFixed(2)}
+          <div className="mt-3">
+            <p className="text-white/40 text-[10px] uppercase tracking-wide mb-0.5">Market avg</p>
+            <p className="text-white/60 text-sm line-through">${release.marketAverage.toFixed(2)}</p>
+            <p className="text-cherry-gold text-lg font-bold leading-none">
+              ${release.cherryPrice.toFixed(2)}
+            </p>
+            {pct > 0 && (
+              <p className="text-waxstat-teal text-[10px] font-semibold mt-0.5">
+                Save {pct.toFixed(0)}%
               </p>
-              {pct > 0 && (
-                <p className="text-waxstat-teal text-[10px] font-semibold mt-0.5">
-                  Save {pct.toFixed(0)}%
-                </p>
-              )}
-            </div>
-            <PriceChart data={release.priceHistory} color="#71D8A7" />
+            )}
           </div>
         </div>
       </div>
