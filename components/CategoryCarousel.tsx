@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Category, Release } from "@/lib/types";
 import { CATEGORIES, CATEGORY_CONFIG } from "@/lib/types";
 import CategoryView from "./CategoryView";
+import CategoryIcon from "./CategoryIcon";
 
 const CYCLE_DURATION = 60; // seconds
 const REFRESH_MS = 10 * 60 * 1000; // 10 minutes
@@ -118,7 +119,7 @@ export default function CategoryCarousel() {
                     }
               }
             >
-              <span>{cfg.emoji}</span>
+              <CategoryIcon category={cat} />
               <span>{cat}</span>
               <Link
                 href={`/${cfg.slug}`}
@@ -155,7 +156,7 @@ export default function CategoryCarousel() {
           <div className="flex items-center gap-1.5 text-white/40 text-xs">
             <span>Next:</span>
             <span style={{ color: nextConfig.color }}>
-              {nextConfig.emoji} {next}
+              <CategoryIcon category={next} /> {next}
             </span>
             <span className="text-white/20">in {remaining}s</span>
           </div>

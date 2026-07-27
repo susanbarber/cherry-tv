@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Category, Release } from "@/lib/types";
 import { CATEGORY_CONFIG, CATEGORIES } from "@/lib/types";
 import CategoryView from "./CategoryView";
+import CategoryIcon from "./CategoryIcon";
 
 interface Props {
   category: Category;
@@ -87,7 +88,7 @@ export default function CategoryPageShell({ category }: Props) {
                 color: "rgba(255,255,255,0.5)",
               }}
             >
-              <span>{cfg.emoji}</span>
+              <CategoryIcon category={cat} />
               <span>{cat}</span>
             </Link>
           );
