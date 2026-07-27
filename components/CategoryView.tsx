@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import type { Category, Release } from "@/lib/types";
 import { CATEGORY_CONFIG } from "@/lib/types";
 import ReleaseCard from "./ReleaseCard";
+import CategoryIcon from "./CategoryIcon";
 
 interface Props {
   category: Category;
@@ -37,7 +38,7 @@ export default function CategoryView({ category, releases }: Props) {
         className="flex items-center gap-4 px-8 py-5"
         style={{ borderBottom: `1px solid ${config.color}33` }}
       >
-        <span className="text-5xl leading-none">{config.emoji}</span>
+        <CategoryIcon category={category} size={48} />
         <div>
           <h1
             className="text-4xl font-black tracking-tight leading-none"
