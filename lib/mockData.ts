@@ -1,5 +1,7 @@
 import type { Release } from "./types";
 
+const S3 = "https://slabstat-production.s3.amazonaws.com/Listings";
+
 function priceHistory(base: number, days = 7): { date: string; price: number }[] {
   return Array.from({ length: days }, (_, i) => {
     const d = new Date();
@@ -17,7 +19,7 @@ function daysFromNow(n: number) {
   return d.toISOString().split("T")[0];
 }
 
-// Source: waxstat.com release calendars — real product names & prices
+// Source: waxstat.com — images from slabstat-production.s3.amazonaws.com
 export const mockReleases: Release[] = [
 
   // ─── BASKETBALL ──────────────────────────────────────────────────────────────
@@ -30,8 +32,7 @@ export const mockReleases: Release[] = [
     marketAverage: 347.45,
     cherryPrice: 309.95,
     priceHistory: priceHistory(347.45),
-    imageUrl:
-      "https://www.blowoutcards.com/media/catalog/product/cache/1/image/750x750/5cc9b2084ebab6842194ad7353fd680e/2/5/25toppshoopshbbk_1.jpg",
+    imageUrl: `${S3}/2025-26-topps-nba-hoops-basketball-hobby-box.png`,
   },
   {
     id: "bk2",
@@ -43,6 +44,7 @@ export const mockReleases: Release[] = [
     cherryPrice: 109.95,
     priceHistory: priceHistory(126.63),
     isNew: true,
+    imageUrl: `${S3}/2025-26-panini-select-euroleague-basketball-hobby-box.png`,
   },
   {
     id: "bk3",
@@ -53,6 +55,7 @@ export const mockReleases: Release[] = [
     marketAverage: 299.95,
     cherryPrice: 269.95,
     priceHistory: priceHistory(299.95),
+    imageUrl: `${S3}/box-2025-26-panini-donruss-basketball-hobby-box-20260212093016437.png`,
   },
   {
     id: "bk4",
@@ -63,9 +66,10 @@ export const mockReleases: Release[] = [
     marketAverage: 849.95,
     cherryPrice: 749.95,
     priceHistory: priceHistory(849.95),
+    imageUrl: `${S3}/2025-26-panini-noir-basketball-hobby-box.jpg`,
   },
 
-  // ─── SOCCER ──────────────────────────────────────────────────────────────────
+  // ─── SOCCER ───────────────────────────────────────��──────────────────────────
   {
     id: "sc1",
     name: "2025 Topps Decades UEFA Club Competitions Soccer Hobby Box",
@@ -75,6 +79,7 @@ export const mockReleases: Release[] = [
     marketAverage: 149.95,
     cherryPrice: 134.95,
     priceHistory: priceHistory(149.95),
+    imageUrl: `${S3}/2025-topps-decades-uefa-club-competitions-soccer-hobby-box.jpg`,
   },
   {
     id: "sc2",
@@ -85,6 +90,7 @@ export const mockReleases: Release[] = [
     marketAverage: 129.95,
     cherryPrice: 114.95,
     priceHistory: priceHistory(129.95),
+    imageUrl: `${S3}/box-2025-topps-decades-soccer-hobby-box-20260106021225605.png`,
   },
   {
     id: "sc3",
@@ -95,6 +101,7 @@ export const mockReleases: Release[] = [
     marketAverage: 63.50,
     cherryPrice: 57.95,
     priceHistory: priceHistory(63.50),
+    imageUrl: `${S3}/box-2025-panini-prizm-k-league-soccer-hobby-box-20250707181903756.png`,
   },
   {
     id: "sc4",
@@ -105,9 +112,10 @@ export const mockReleases: Release[] = [
     marketAverage: 399.95,
     cherryPrice: 359.95,
     priceHistory: priceHistory(399.95),
+    imageUrl: `${S3}/box-2025-futera-incredible-collection-soccer-box-20260210032943499.png`,
   },
 
-  // ─── FOOTBALL ────────────────────────────────────────────────────────────────
+  // ─── FOOTBALL ────────────────────────────────────────────────���───────────────
   {
     id: "fo1",
     name: "2025 Panini Select Football Mega Box",
@@ -139,6 +147,7 @@ export const mockReleases: Release[] = [
     marketAverage: 999.95,
     cherryPrice: 899.95,
     priceHistory: priceHistory(999.95),
+    imageUrl: `${S3}/box-2025-panini-national-treasures-football-hobby-box-20260114100506550.png`,
   },
   {
     id: "fo4",
@@ -149,9 +158,10 @@ export const mockReleases: Release[] = [
     marketAverage: 299.95,
     cherryPrice: 269.95,
     priceHistory: priceHistory(299.95),
+    imageUrl: `${S3}/box-2025-panini-select-football-hobby-box-20260105124109551.png`,
   },
 
-  // ─── POKÉMON ─────────────────────────────────────────────────────────────────
+  // ─── POKÉMON ──────���───────────────────────────────────���──────────────────────
   {
     id: "pk1",
     name: "Pokemon Mega Evolution Chaos Rising Booster Box",
@@ -162,8 +172,7 @@ export const mockReleases: Release[] = [
     cherryPrice: 224.95,
     priceHistory: priceHistory(249.95),
     isNew: true,
-    imageUrl:
-      "https://d1i787aglh9bmb.cloudfront.net/assets/img/me-expansions/me04/collections/en-us/me04-booster-display-en.png",
+    imageUrl: `${S3}/pokemon-mega-evolution-chaos-rising-booster-box.png`,
   },
   {
     id: "pk2",
@@ -174,6 +183,7 @@ export const mockReleases: Release[] = [
     marketAverage: 218.71,
     cherryPrice: 194.95,
     priceHistory: priceHistory(218.71),
+    imageUrl: `${S3}/box-pokemon-mega-evolution-ascended-heroes-elite-trainer-box-20260216175504141.png`,
   },
   {
     id: "pk3",
@@ -184,6 +194,7 @@ export const mockReleases: Release[] = [
     marketAverage: 38.95,
     cherryPrice: 34.95,
     priceHistory: priceHistory(38.95),
+    imageUrl: `${S3}/box-2026-pokemon-day-collection-box-20260126123506022.png`,
   },
 
   // ─── MAGIC THE GATHERING ─────────────────────────────────────────────────────
@@ -196,6 +207,7 @@ export const mockReleases: Release[] = [
     marketAverage: 59.95,
     cherryPrice: 54.95,
     priceHistory: priceHistory(59.95),
+    imageUrl: `${S3}/box-magic-the-gathering-lorwyn-eclipsed-bundle-box-20260408130017375.png`,
   },
   {
     id: "mg2",
@@ -207,6 +219,7 @@ export const mockReleases: Release[] = [
     cherryPrice: 374.95,
     priceHistory: priceHistory(419.95),
     isNew: true,
+    imageUrl: `${S3}/box-magic-the-gathering-lorwyn-eclipsed-collector-booster-box-20260114053404635.png`,
   },
   {
     id: "mg3",
@@ -229,9 +242,10 @@ export const mockReleases: Release[] = [
     cherryPrice: 2199.95,
     priceHistory: priceHistory(2499.95),
     isNew: true,
+    imageUrl: `${S3}/box-magic-the-gathering-logo-20251113130649486.jpg`,
   },
 
-  // ─── ONE PIECE ───────────────────────────────────────────────────────────────
+  // ─── ONE PIECE ────────────���───────────────────────────────────���──────────────
   {
     id: "op1",
     name: "One Piece Card Game OP-15 Adventure on KAMI's Island Booster Box",

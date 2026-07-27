@@ -5,28 +5,14 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.blowoutcards.com",
-        pathname: "/media/catalog/product/**",
+        hostname: "slabstat-production.s3.amazonaws.com",
+        pathname: "/Listings/**",
       },
+      // Legacy retailer CDN images (kept for any remaining references)
       {
         protocol: "https",
         hostname: "d1i787aglh9bmb.cloudfront.net",
         pathname: "/assets/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn11.bigcommerce.com",
-        pathname: "/s-a0ebd/images/**",
-      },
-      {
-        protocol: "https",
-        hostname: "upperdeckstore.com",
-        pathname: "/media/catalog/product/**",
-      },
-      {
-        protocol: "https",
-        hostname: "bleeckertrading.com",
-        pathname: "/cdn/shop/**",
       },
     ],
   },
