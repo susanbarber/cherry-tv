@@ -1,6 +1,26 @@
 import type { Category } from "@/lib/types";
 import { CATEGORY_CONFIG } from "@/lib/types";
 
+function MagicTheGatheringIcon({ size = 14 }: { size?: number }) {
+  // Five mana colours in the standard pentagon (clockwise from top):
+  // White · Blue · Black · Red · Green
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      width={size}
+      height={size}
+      aria-label="Magic: The Gathering"
+      style={{ display: "inline-block", flexShrink: 0 }}
+    >
+      <circle cx="10"   cy="4.2"  r="2.2" fill="#f0ead8" stroke="#c8a030" strokeWidth="0.7" />
+      <circle cx="15.3" cy="8.2"  r="2.2" fill="#4499ee" stroke="#1a5fa0" strokeWidth="0.7" />
+      <circle cx="13.4" cy="14.6" r="2.2" fill="#909090" stroke="#444"    strokeWidth="0.7" />
+      <circle cx="6.6"  cy="14.6" r="2.2" fill="#ee4422" stroke="#aa2200" strokeWidth="0.7" />
+      <circle cx="4.7"  cy="8.2"  r="2.2" fill="#22aa44" stroke="#116622" strokeWidth="0.7" />
+    </svg>
+  );
+}
+
 function PokeBall({ size = 14 }: { size?: number }) {
   return (
     <svg
@@ -62,5 +82,6 @@ interface Props {
 export default function CategoryIcon({ category, size = 14 }: Props) {
   if (category === "Pokémon") return <PokeBall size={size} />;
   if (category === "One Piece") return <OnePieceJollyRoger size={size} />;
+  if (category === "Magic the Gathering") return <MagicTheGatheringIcon size={size} />;
   return <span>{CATEGORY_CONFIG[category].emoji}</span>;
 }
