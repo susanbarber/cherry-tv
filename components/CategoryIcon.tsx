@@ -2,21 +2,46 @@ import type { Category } from "@/lib/types";
 import { CATEGORY_CONFIG } from "@/lib/types";
 
 function MagicTheGatheringIcon({ size = 14 }: { size?: number }) {
-  // Five mana colours in the standard pentagon (clockwise from top):
-  // White · Blue · Black · Red · Green
   return (
     <svg
-      viewBox="0 0 20 20"
+      viewBox="0 0 20 22"
       width={size}
       height={size}
       aria-label="Magic: The Gathering"
       style={{ display: "inline-block", flexShrink: 0 }}
     >
-      <circle cx="10"   cy="4.2"  r="2.2" fill="#f0ead8" stroke="#c8a030" strokeWidth="0.7" />
-      <circle cx="15.3" cy="8.2"  r="2.2" fill="#4499ee" stroke="#1a5fa0" strokeWidth="0.7" />
-      <circle cx="13.4" cy="14.6" r="2.2" fill="#909090" stroke="#444"    strokeWidth="0.7" />
-      <circle cx="6.6"  cy="14.6" r="2.2" fill="#ee4422" stroke="#aa2200" strokeWidth="0.7" />
-      <circle cx="4.7"  cy="8.2"  r="2.2" fill="#22aa44" stroke="#116622" strokeWidth="0.7" />
+      <defs>
+        <linearGradient id="mtg-spark" x1="0.5" y1="0" x2="0.5" y2="1">
+          <stop offset="0%"   stopColor="#ffaa00" />
+          <stop offset="25%"  stopColor="#ff5500" />
+          <stop offset="65%"  stopColor="#ee2200" />
+          <stop offset="100%" stopColor="#cc1100" />
+        </linearGradient>
+      </defs>
+      {/* Planeswalker spark symbol — five-spiked crown tapering to downward point */}
+      <path
+        fill="url(#mtg-spark)"
+        d="
+          M 10 21.5
+          C 12.5 18.5 16 13.5 17.2 9.5
+          C 17.5 8.2 17.8 7.8 17.5 7
+          C 17 8 16 9 15.5 9.5
+          C 15 9.8 14.5 9.5 14.2 9
+          C 14 8.2 13.8 6 13.5 4
+          C 13.2 6.5 13 9 12 9.5
+          C 11.5 9.8 11 9.5 10.8 9
+          C 10.5 7.5 10.2 3 10 1
+          C 9.8 3 9.5 7.5 9.2 9
+          C 9 9.5 8.5 9.8 8 9.5
+          C 7 9 6.8 6.5 6.5 4
+          C 6.2 6 6 8.2 5.8 9
+          C 5.5 9.5 5 9.8 4.5 9.5
+          C 4 9 3 8 2.5 7
+          C 2.2 7.8 2.5 8.2 2.8 9.5
+          C 4 13.5 7.5 18.5 10 21.5
+          Z
+        "
+      />
     </svg>
   );
 }
