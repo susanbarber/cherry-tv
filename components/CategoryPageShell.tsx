@@ -6,6 +6,7 @@ import type { Category, Release } from "@/lib/types";
 import { CATEGORY_CONFIG, CATEGORIES } from "@/lib/types";
 import CategoryView from "./CategoryView";
 import CategoryIcon from "./CategoryIcon";
+import CherryLogo from "./CherryLogo";
 
 interface Props {
   category: Category;
@@ -47,14 +48,7 @@ export default function CategoryPageShell({ category }: Props) {
             ← TV Mode
           </Link>
           <div className="w-px h-4 bg-white/20" />
-          <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-full bg-cherry-red flex items-center justify-center text-white font-black text-[10px]">
-              CC
-            </div>
-            <p className="text-cherry-red font-black text-base tracking-tight leading-none">
-              Cherry Collectables
-            </p>
-          </div>
+          <CherryLogo className="text-xl" />
         </div>
 
         <div className="flex items-center gap-4">

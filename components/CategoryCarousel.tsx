@@ -6,6 +6,7 @@ import type { Category, Release } from "@/lib/types";
 import { CATEGORIES, CATEGORY_CONFIG } from "@/lib/types";
 import CategoryView from "./CategoryView";
 import CategoryIcon from "./CategoryIcon";
+import CherryLogo from "./CherryLogo";
 
 const CYCLE_DURATION = 60; // seconds
 const REFRESH_MS = 10 * 60 * 1000; // 10 minutes
@@ -66,18 +67,9 @@ export default function CategoryCarousel() {
     <div className="min-h-screen bg-cherry-black text-white flex flex-col">
       {/* ── Header ─────────────────────────────────────────────────────── */}
       <header className="flex items-center justify-between px-8 py-4 border-b border-white/10 shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-cherry-red flex items-center justify-center text-white font-black text-xs shrink-0">
-            CC
-          </div>
-          <div>
-            <p className="text-cherry-red font-black text-lg tracking-tight leading-none">
-              Cherry Collectables
-            </p>
-            <p className="text-white/40 text-[10px] tracking-widest uppercase">
-              Release TV
-            </p>
-          </div>
+        <div className="flex flex-col gap-1">
+          <CherryLogo className="text-2xl" />
+          <p className="text-white/40 text-[10px] tracking-widest uppercase">Release TV</p>
         </div>
 
         <div className="flex items-center gap-4">
